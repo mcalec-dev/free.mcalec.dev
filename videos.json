@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "src": "/videos/1.mp4",
+    "bpm": "132",
+    "style": "color: white;"
+  },
+  {
+    "id": 2,
+    "src": "/videos/2.mp4",
+    "bpm": "132",
+    "style": "color: white;",
+    "delay": "0"
+  },
+  {
+    "id": 3,
+    "src": "/videos/3.mp4",
+    "bpm": "2",
+    "style": "color: white;",
+    "delay": "0"
+  },
+  {
+    "id": 4,
+    "src": "/videos/4.mp4",
+    "style": "color: white;"
+  },
+  {
+    "id": 5,
+    "src": "/videos/5.mp4",
+    "style": "color: white;"
+  }
+]
