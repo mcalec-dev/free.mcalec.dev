@@ -2,44 +2,41 @@ window.onload = async () => {
   const video = document.getElementById("video");
   const loading = document.getElementById("loading");
   const data = document.getElementById("data");
-
   const error = (message) => {
     loading.innerText = message;
     throw message;
   };
-
   const pick = (array) => array[Math.floor(Math.random() * array.length)];
   const hacked_statements = ["Yes", "Maybe", "Most Likely", "Highly Probable", "Potentially", "Unlikely But Still Possible", "Almost Certainly", "Definitely", "Absolutely"];
-
+  const getQueryParam = (param) => {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+  };
   try {
     const memes = [];
     const push = (tit, con, add) => memes.push(`${tit}: ${con}${add || ""}`);
-
     let step = 0;
-
     let fontSize = Math.min(window.innerHeight / 10, window.innerWidth / 10);
     data.style.fontSize = `${fontSize}px`;
-
     let my_ip = await (await fetch("https://wtfismyip.com/json").catch()).json().catch();
     let ip_data = await (await fetch(`https://uncors.vercel.app/?url=http://ip-api.com/json/${my_ip.YourFuckingIPAddress}`).catch()).json().catch();
-
     const videoListResponse = await fetch("videos.json").catch(error);
     const videoList = await videoListResponse.json().catch(error);
-    const randomVideo = pick(videoList);
-
+    const videoId = getQueryParam("id");
+    const randomVideo = videoId ? videoList.find(video => video.id == videoId) : pick(videoList);
+    if (!randomVideo) {
+      error("Video not found");
+    }
     if (randomVideo.style) {
       data.style.cssText += randomVideo.style;
       video.style.cssText += randomVideo.style;
     }
-
     const videoData = await fetch(randomVideo.src).catch(error);
     video.src = URL.createObjectURL(await videoData.blob());
     video.load();
-
     video.oncanplaythrough = async () => {
       loading.style.display = "none";
       start.style.display = "flex";
-
       if (my_ip && ip_data) {
         push("Haha", "Gottem");
         push("IP Address", ip_data.query);
@@ -102,12 +99,10 @@ window.onload = async () => {
       push("You are", "Cringe");
       push("Current Status", "Hacked");
     };
-
     start.onclick = async () => {
       start.style.display = "none";
       video.style.display = "flex";
       video.play();
-
       const bpm = randomVideo.bpm ? parseInt(randomVideo.bpm) : 132;
       const delay = randomVideo.delay;
       const interval = setInterval(() => {
@@ -131,12 +126,11 @@ window.onload = async () => {
         }
       }, 5);
     };
-
     video.onended = () => {
       video.style.display = "none";
       step = -Infinity;
-      data.style.color = "black"; // Change text color back to black
-      video.style.color = "black"; // Ensure video text color is also changed back to black
+      data.style.color = "black";
+      video.style.color = "black";
     };
   } catch (e) {
     error(`${e.message}`);
