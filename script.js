@@ -109,13 +109,13 @@ window.onload = async () => {
       video.play();
 
       const bpm = randomVideo.bpm ? parseInt(randomVideo.bpm) : 132;
-      const delay = randomVideo.delay ? parseFloat(randomVideo.delay) : 0;
+      const delay = randomVideo.delay;
       const interval = setInterval(() => {
-        const time = video.currentTime - 2.1 - (step * 60) / bpm - delay;
+        const time = video.currentTime - delay - (step * 60) / bpm;
         if (step >= memes.length) step = -Infinity;
         if (step < 0) return clearInterval(interval);
         if (time >= 0) {
-          if (step == 0) document.title = `lmao this you? [${my_ip ? my_ip.YourFuckingIPAddress : "::ffff:172.70.126.134"}]`;
+          if (step == 0) document.title = `YoUr DeViCe HaS bEeN hAcKeD`;
           const el = document.createElement("span");
           el.textContent = `${memes[step]}`;
           if (randomVideo.style) {
@@ -135,6 +135,8 @@ window.onload = async () => {
     video.onended = () => {
       video.style.display = "none";
       step = -Infinity;
+      data.style.color = "black"; // Change text color back to black
+      video.style.color = "black"; // Ensure video text color is also changed back to black
     };
   } catch (e) {
     error(`${e.message}`);

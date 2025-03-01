@@ -3,7 +3,8 @@
     "id": 1,
     "src": "/videos/1.mp4",
     "bpm": "132",
-    "style": "color: white;"
+    "style": "color: black;",
+    "delay": "2.1"
   },
   {
     "id": 2,
@@ -15,18 +16,36 @@
   {
     "id": 3,
     "src": "/videos/3.mp4",
-    "bpm": "2",
+    "bpm": "150",
     "style": "color: white;",
     "delay": "0"
   },
   {
     "id": 4,
     "src": "/videos/4.mp4",
-    "style": "color: white;"
+    "bpm": "132",
+    "style": "color: white;",
+    "delay": "3.46"
   },
   {
     "id": 5,
     "src": "/videos/5.mp4",
-    "style": "color: white;"
+    "bpm": "132",
+    "style": "color: white;",
+    "delay": "0"
+  },
+  {
+    "id": 6,
+    "src": "/videos/6.mp4",
+    "bpm": "132",
+    "style": "color: white;",
+    "delay": "0"
+  },
+  {
+    "id": 7,
+    "src": "/videos/7.mp4",
+    "bpm": "136",
+    "style": "color: black;",
+    "delay": "5.9"
   }
 ]
