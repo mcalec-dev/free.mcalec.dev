@@ -47,5 +47,12 @@
     "bpm": "136",
     "style": "color: black;",
     "delay": "5.9"
+  },
+  {
+    "id": 8,
+    "src": "/videos/8.mp4",
+    "bpm": "123",
+    "style": "color: white;",
+    "delay": "7.7"
   }
 ]
