@@ -7,7 +7,6 @@ window.onload = async () => {
     throw message;
   };
   const pick = (array) => array[Math.floor(Math.random() * array.length)];
-  const hacked_statements = ["Yes", "Maybe", "Most Likely", "Highly Probable", "Potentially", "Unlikely But Still Possible", "Almost Certainly", "Definitely", "Absolutely"];
   const getQueryParam = (param) => {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(param);
@@ -38,7 +37,6 @@ window.onload = async () => {
       loading.style.display = "none";
       start.style.display = "flex";
       if (my_ip && ip_data) {
-        push("Haha", "Gottem");
         push("IP Address", ip_data.query);
         push("Hostname", my_ip.YourFuckingHostname);
         push("Country", `${ip_data.country} (${ip_data.countryCode})`);
@@ -48,8 +46,7 @@ window.onload = async () => {
         push("Longitude", ip_data.lon);
         push("ISP", my_ip.YourFuckingISP);
         push("Autonomous System", ip_data.as);
-      } else {
-        push("IP Address", "::ffff:172.70.126.134");
+        push("Autonomous System Organization", ip_data.org);
       }
       push("User Agent", navigator.userAgent);
       push("Connection Method", "GET");
@@ -94,10 +91,10 @@ window.onload = async () => {
       push("Current Time", `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`);
       if (ip_data) push("Timezone", ip_data.timezone);
       push("Timezone Offset", date.getTimezoneOffset() / 60, " hours");
-      push("Hacked", pick(hacked_statements));
-      push("Stop playing", "Kid");
-      push("You are", "Cringe");
-      push("Current Status", "Hacked");
+      push("Battery Status", navigator.getBattery ? "Available" : "Not Available");
+      push("Cookies Enabled", navigator.cookieEnabled ? "Yes" : "No");
+      push("WebGL Support", gl ? "Available" : "Not Available");
+      push("Fullscreen", document.fullscreenElement ? "Enabled" : "Disabled");
     };
     start.onclick = async () => {
       start.style.display = "none";

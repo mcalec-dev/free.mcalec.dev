@@ -1,7 +1,6 @@
 # [free.mcalec.dev](https://free.mcalec.dev/)
 
-Another dumb thing I made  
+another dumb thing that i definitely created  
+credits to [3kh0](https://3kh0.net/) for original code lel, [link to og site](https://sus.3kh0.net).
 
-credits to [3kh0](https://3kh0.net/) for original code and idea, link to og project [here](https://assets.3kh0.net/roblox/).
-
-*p.s you can use uri paths `?id=XX` and theres a json file for it all too `videos.json`*
+<sub>pstt you can use url parameters `?id=XX` and theres a json file with all the videos `videos.json` :3<sub>
