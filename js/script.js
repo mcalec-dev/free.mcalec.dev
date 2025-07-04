@@ -107,7 +107,7 @@ window.onload = async () => {
         if (step >= memes.length) step = -Infinity;
         if (step < 0) return clearInterval(interval);
         if (time >= 0) {
-          if (step == 0) document.title = `YoUr DeViCe HaS bEeN hAcKeD`;
+          if (step == 0) document.title = `lmao u got hackored`;
           const el = document.createElement("span");
           el.textContent = `${memes[step]}`;
           if (randomVideo.style) {
